@@ -1,0 +1,29 @@
+The assignment2 in fucntional programming principles in Scala
+is about set operations
+
+Here set is defined as fucntion type , which takes element as input and determines whether it belongs there or not. This is trying to encapsulate the "Set" data structure found in Java.
+
+The set of function defined in the assignment consists of 
+type Set = Int => Boolean
+
+Contains(S: Set, elem : Int) : Boolean = S(elem)
+
+Next is to define singletonSet. This is
+to return function of type Set. This can be envisioned as 
+returning anonymous function, which takes element x. It is singleton, 
+if the element x is same as argument elem.
+
+def singletonSet(elem : Int) : Set = ((x : Int) => (x ==elem))
+
+Next is union which takes two function arguments of type Set s and t and determines the union of these two sets. This can be envisioned as function which takes integer X and if belongs to set s or set t, then returns true
+
+def union(s: Set, t: set): Set = ((x: Int) => (contains(s,x) | contains(t, x)))
+
+Intersection is if the element belongs to both the sets
+
+def intersect(s: Set, t: Set): Set = ((x: Int) => (contains(s,x) & contains(t,x)))
+
+Diff is if elements belongs to first set, but not in second set.
+
+
+
