@@ -17,13 +17,30 @@ def singletonSet(elem : Int) : Set = ((x : Int) => (x ==elem))
 
 Next is union which takes two function arguments of type Set s and t and determines the union of these two sets. This can be envisioned as function which takes integer X and if belongs to set s or set t, then returns true
 
-def union(s: Set, t: set): Set = ((x: Int) => (contains(s,x) | contains(t, x)))
+def union(s: Set, t: set): Set = ((x: Int) => (contains(s,x) || contains(t, x)))
 
 Intersection is if the element belongs to both the sets
 
-def intersect(s: Set, t: Set): Set = ((x: Int) => (contains(s,x) & contains(t,x)))
+def intersect(s: Set, t: Set): Set = ((x: Int) => (contains(s,x) && contains(t,x)))
 
 Diff is if elements belongs to first set, but not in second set.
 
+filter is if element belongs to first set and predicate condition holds true.
 
+forall is pretty straight forward. It checks all elements in set satisfies predicate condition
+
+def forall(s: Set, p:Int => Boolean): Boolean = {
+
+def iter(a:Int) : Boolean = {
+if(a > 1000) true
+else if (belongs to set s and !p(a)) false
+else iter(a+1)
+iter(-1000)
+}
+
+exists(s: Set, p:Int=> Boolean) needs to be implemented using forall.
+This can be envisioned as for all elements in set s, if negation of predicate holds false, then there exists at least one element for which predicate is true.
+
+map(s: Set, f: Int => Int): Set - requires to return new Set (function), which converst element x in set s to f(x) in new set. This can be thought of as :
+for a element y in new set, if there exists in set s, element x such that f(x) == y
 
