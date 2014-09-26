@@ -13,15 +13,15 @@ to return function of type Set. This can be envisioned as
 returning anonymous function, which takes element x. It is singleton, 
 if the element x is same as argument elem.
 
-def singletonSet(elem : Int) : Set = ((x : Int) => (x ==elem))
+def singletonSet(elem : Int) : Set = (element x such that if x == elem , then its singleton set)
 
 Next is union which takes two function arguments of type Set s and t and determines the union of these two sets. This can be envisioned as function which takes integer X and if belongs to set s or set t, then returns true
 
-def union(s: Set, t: set): Set = ((x: Int) => (contains(s,x) || contains(t, x)))
+def union(s: Set, t: set): Set = (element x such that it belongs to set s or belongs to set t)
 
 Intersection is if the element belongs to both the sets
 
-def intersect(s: Set, t: Set): Set = ((x: Int) => (contains(s,x) && contains(t,x)))
+def intersect(s: Set, t: Set): Set = (element x such that (x belongs to set s and belons to set t)
 
 Diff is if elements belongs to first set, but not in second set.
 
@@ -32,10 +32,10 @@ forall is pretty straight forward. It checks all elements in set satisfies predi
 def forall(s: Set, p:Int => Boolean): Boolean = {
 
 def iter(a:Int) : Boolean = {
-if(a > 1000) true
-else if (belongs to set s and !p(a)) false
+if(a is greater than upper bound) true
+else if (belongs to set s and does not satisfy predicate) return false
 else iter(a+1)
-iter(-1000)
+iter(lowerbound)
 }
 
 exists(s: Set, p:Int=> Boolean) needs to be implemented using forall.
